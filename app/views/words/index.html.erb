@@ -1,0 +1,16 @@
+<h1>My keywords to follow</h1>
+
+<ul>
+  <% @words.each do |word| %>
+    <li><%= word.name %>
+        <%= link_to edit_word_path(word) do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to word_path(word), method: :delete, data: { confirm: "Sure?" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a keyword to follow", new_word_path %>
